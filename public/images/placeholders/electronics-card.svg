@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none">
+  <rect width="800" height="560" fill="#EFF5FF"/>
+  <g opacity=".55" stroke="#2F6FEB" stroke-width="7"><rect x="238" y="130" width="324" height="300" rx="34"/><path d="M180 200h58m-58 80h58m-58 80h58m382-160h58m-58 80h58m-58 80h58M310 70v60m90-60v60m90-60v60m-90 300v60m-90-60v60m180-60v60"/><rect x="320" y="210" width="160" height="140" rx="18"/><path d="M350 250h100m-100 60h100"/></g>
+  <text x="400" y="495" text-anchor="middle" fill="#5272AA" font-family="Arial, sans-serif" font-size="28">VOLTINA ELECTRONICS</text>
+</svg>
