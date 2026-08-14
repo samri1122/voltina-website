@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import SafeImage from "./SafeImage";
 import { products } from "@/data/products";
 import { useModal } from "./ModalProvider";
@@ -12,20 +13,21 @@ const FILTERS: { key: Product["cat"] | "all"; label: string }[] = [
 
 const STAR = <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6z" /></svg>;
 
-export default function ShopSection() {
+export default function ShopSection({ variant = "featured" }: { variant?: "featured" | "full" }) {
   const [filter, setFilter] = useState<Product["cat"] | "all">("all");
-  const [showAll, setShowAll] = useState(false);
   const { openProductModal } = useModal();
+  const featuredSlugs = ["esp32-dual-core", "multimeter-true-rms", "freezer-control-board", "soldering-iron-60w", "battery-charger-tp4056", "adapter-24v-3a"];
+  const featured = featuredSlugs.map((slug) => products.find((product) => product.slug === slug)).filter((product): product is Product => Boolean(product));
   const filtered = filter === "all" ? products : products.filter((product) => product.cat === filter);
-  const visible = showAll ? filtered : filtered.slice(0, 8);
+  const visible = variant === "full" ? filtered : featured;
 
   return <section className="light" id="shop"><div className="wrap">
-    <div className="sec-head reveal"><div className="sec-eyebrow">فروشگاه</div><h2>قطعات پرکاربرد، انتخاب سریع‌تر</h2><p>محصول مناسب را از دسته‌بندی‌ها پیدا کنید، جزئیات را ببینید و برای سفارش یا استعلام با ما در ارتباط باشید.</p></div>
-    <div className="shop-filters">{FILTERS.map((item) => <button key={item.key} className={`filter-pill ${filter === item.key ? "active" : ""}`} onClick={() => { setFilter(item.key); setShowAll(false); }}>{item.label}</button>)}</div>
+    <div className="sec-head reveal"><div className="sec-eyebrow">{variant === "full" ? "فروشگاه Voltina" : "انتخاب‌های فروشگاه"}</div><h2>{variant === "full" ? "همهٔ قطعات و تجهیزات الکترونیکی" : "پربازدیدها، پرفروش‌ها و تازه‌رسیده‌ها"}</h2><p>{variant === "full" ? "محصول مناسب را از دسته‌بندی‌ها پیدا کنید، جزئیات را ببینید و برای سفارش یا استعلام با ما در ارتباط باشید." : "چند انتخاب مطمئن از کالاهای پرتقاضا و تازه‌رسیدهٔ Voltina را سریع بررسی کنید."}</p></div>
+    {variant === "full" && <div className="shop-filters">{FILTERS.map((item) => <button key={item.key} className={`filter-pill ${filter === item.key ? "active" : ""}`} onClick={() => setFilter(item.key)}>{item.label}</button>)}</div>}
     <div className="shop-grid">{visible.map((product) => <article className="shop-card" key={product.slug} data-cat={product.cat}>
-      <div className="shop-thumb"><span className="shop-badge">{product.stock === "in" ? "موجود" : "کمیاب"}</span><SafeImage src={product.images[0]} alt={product.name} width={640} height={430} /></div>
+      <div className="shop-thumb"><span className="shop-badge">{product.badge === "new" ? "جدید" : product.badge === "best" ? "پرفروش" : product.stock === "in" ? "پربازدید" : "کمیاب"}</span><SafeImage src={product.images[0]} alt={product.name} width={640} height={430} /></div>
       <div className="shop-body"><span className="shop-cat">{product.catLabel}</span><h4 className="shop-view-details" onClick={() => openProductModal(product)}>{product.name}</h4><div className="shop-rating">{STAR}{STAR}{STAR}{STAR}{STAR}<span>({product.reviews})</span></div><span className={`stock-status ${product.stock === "in" ? "in-stock" : "low-stock"}`}>{product.stockText}</span><div className="shop-foot"><div className="shop-price-wrap"><span className="shop-price">{product.price}<span>تومان</span></span></div><a href="#order-form" className="add-cart-btn">افزودن</a></div></div>
     </article>)}</div>
-    <div className="shop-more">{filtered.length > 8 && !showAll ? <button className="shop-more-btn" onClick={() => setShowAll(true)}>مشاهده همه محصولات ({filtered.length})</button> : <a href="#order-form" className="shop-more-btn">سفارش عمده یا قطعهٔ موردنظر</a>}</div>
+    <div className="shop-more">{variant === "featured" ? <Link href="/shop" className="shop-more-btn">مشاهدهٔ فروشگاه کامل و همهٔ محصولات</Link> : <a href="#order-form" className="shop-more-btn">سفارش عمده یا قطعهٔ موردنظر</a>}</div>
   </div></section>;
 }

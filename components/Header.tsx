@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "#home", label: "خانه" }, { href: "#custom-project", label: "سفارش پروژه" }, { href: "#shop", label: "فروشگاه" }, { href: "#portfolio", label: "نمونه‌کارها" }, { href: "#services", label: "خدمات" }, { href: "#about", label: "درباره ما" },
+  { href: "#home", label: "خانه" }, { href: "#custom-project", label: "سفارش پروژه" }, { href: "/shop", label: "فروشگاه" }, { href: "#portfolio", label: "نمونه‌کارها" }, { href: "#services", label: "خدمات" }, { href: "#about", label: "درباره ما" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#home");
   useEffect(() => {
-    const sections = NAV_LINKS.map((link) => document.querySelector(link.href)).filter((item): item is Element => Boolean(item));
+    const sections = NAV_LINKS.filter((link) => link.href.startsWith("#")).map((link) => document.querySelector(link.href)).filter((item): item is Element => Boolean(item));
     const onScroll = () => { let current = "#home"; for (const section of sections) if (section.getBoundingClientRect().top <= 120) current = `#${section.id}`; setActive(current); };
     window.addEventListener("scroll", onScroll, { passive: true }); onScroll(); return () => window.removeEventListener("scroll", onScroll);
   }, []);

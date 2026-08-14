@@ -313,6 +313,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.9);backdrop-fi
 .shop-more{display:flex;justify-content:center;margin-top:40px;}
 .shop-more-btn{border:1px solid var(--line);background:var(--white);color:var(--ink);font-weight:700;font-size:.9rem;padding:13px 30px;border-radius:10px;transition:.2s;}
 .shop-more-btn:hover{border-color:var(--blue);color:var(--blue);}
+.shop-page-header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-dark);}
+.shop-page-nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.shop-page-brand{width:128px;height:46px;display:block;overflow:hidden;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:#080b12;}
+.shop-page-brand img{width:100%;height:100%;object-fit:cover;object-position:center 43%;transform:scale(1.15);}
+.shop-page-nav>div{display:flex;align-items:center;gap:18px;color:#d9e5f7;font-size:.86rem;font-weight:700;}
+.shop-page-cta{background:var(--blue);color:#fff;padding:9px 14px;border-radius:8px;}
 
 /* trust strip */
 .shop-trust{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px;padding-top:40px;border-top:1px solid var(--line);}
