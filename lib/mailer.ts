@@ -7,13 +7,24 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 function getTransporter() {
+  const host = process.env.SMTP_HOST?.trim();
+  const user = process.env.SMTP_USER?.trim();
+  const password = process.env.SMTP_PASS?.replace(/\s/g, "");
+
+  if (!host || !user || !password || !process.env.NOTIFY_EMAIL?.trim()) {
+    throw new Error(
+      "Email settings are incomplete. Set NOTIFY_EMAIL, SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER and SMTP_PASS in Vercel."
+    );
+  }
+
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host,
     port: Number(process.env.SMTP_PORT || 465),
     secure: process.env.SMTP_SECURE !== "false",
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user,
+      // Google shows App Passwords in groups of four characters. Whitespace is not part of the password.
+      pass: password,
     },
   });
 }
