@@ -5,8 +5,8 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-grid">
         <div>
-          <div className="brand" style={{ marginBottom: 14 }}>
-            Voltina
+          <div className="footer-logo-image">
+            <img src="/images/voltina-logo.png" alt="Voltina Electronics" />
           </div>
           <p>ارائه‌دهنده‌ی خدمات تخصصی تعمیر، طراحی و فروش قطعات الکترونیکی.</p>
           <div className="social-row">
