@@ -43,7 +43,7 @@ export default function Footer() {
               <a href="#repair-request">ثبت درخواست تعمیر</a>
             </li>
             <li>
-              <a href="#order-form">ثبت سفارش خرید</a>
+              <Link href="/shop#order-form">ثبت سفارش خرید</Link>
             </li>
             <li>
               <a href="https://wa.me/989015039653" target="_blank" rel="noopener">

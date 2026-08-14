@@ -88,7 +88,7 @@ export default function ModalRoot() {
                 مشخصات فوق نمونه است — پیش از تحویل، مشخصات دقیق را با کارشناسان Voltina یا از طریق چت واتساپ تأیید کنید.
               </p>
               <a
-                href="#order-form"
+                href="/shop#order-form"
                 className="f-submit"
                 style={{ display: "inline-block", textDecoration: "none", textAlign: "center" }}
                 onClick={() => {

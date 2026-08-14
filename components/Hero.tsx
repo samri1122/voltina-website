@@ -1,7 +1,7 @@
 const options = [
   { href: "#repair-request", label: "تعمیر دستگاه یا برد", text: "ثبت مشکل و ارسال تصویر دستگاه", icon: "repair" },
   { href: "#custom-project", label: "ساخت پروژه اختصاصی", text: "از ایده تا طراحی و ساخت", icon: "circuit" },
-  { href: "#shop", label: "خرید قطعه و ماژول", text: "مشاهده قطعات پرکاربرد", icon: "shop" },
+  { href: "/shop", label: "خرید قطعه و ماژول", text: "مشاهده قطعات پرکاربرد", icon: "shop" },
 ];
 
 function OptionIcon({ type }: { type: string }) {
