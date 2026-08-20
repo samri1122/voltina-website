@@ -1,6 +1,13 @@
 import { BlogPost } from "@/types";
 import { seoBlogPosts } from "./blog-extra";
 
+const localBlogImages = [
+  "/images/blog/cover-1.jpg",
+  "/images/blog/cover-2.jpg",
+  "/images/blog/cover-3.jpg",
+  "/images/blog/cover-4.jpg",
+];
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "esp32-getting-started",
@@ -163,4 +170,9 @@ export const blogPosts: BlogPost[] = [
     bodyHtml: "<p>هرچه ورودی‌های پروژه از ابتدا روشن‌تر باشد، طراحی برد سریع‌تر و قابل‌اعتمادتر پیش می‌رود.</p><h2>مواردی که باید مشخص شوند</h2><ul><li>کارکرد اصلی و شرایط محیطی محصول</li><li>ولتاژهای ورودی و خروجی و مصرف تقریبی</li><li>ابعاد و نوع محفظه</li><li>کانکتورها، نمایشگر، کلیدها و سنسورهای موردنیاز</li><li>تعداد نمونه اولیه و برنامه تولید آینده</li></ul><p>یک شماتیک اولیه، عکس نمونه مشابه یا حتی فهرست نیازها برای شروع گفت‌وگوی فنی بسیار کمک‌کننده است.</p>",
   },
   ...seoBlogPosts,
-];
+].map((post, index) => ({
+  ...post,
+  image: post.image.startsWith("http") || post.image.includes("/placeholders/")
+    ? localBlogImages[index % localBlogImages.length]
+    : post.image,
+}));

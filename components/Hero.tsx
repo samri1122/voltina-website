@@ -16,7 +16,7 @@ export default function Hero() {
       <span className="eyebrow">تعمیر، طراحی و تأمین قطعات الکترونیک</span>
       <h1>برای هر مسئلهٔ الکترونیکی، <span>یک مسیر روشن</span></h1>
       <p>از عیب‌یابی برد و تعمیر دستگاه تا طراحی PCB و تهیهٔ قطعات؛ درخواستتان را ثبت کنید تا از ابتدا مسیر درست را انتخاب کنید.</p>
-      <div className="hero-ctas"><a href="#repair-request" className="btn-primary btn-highlight">ثبت درخواست تعمیر</a><a href="#custom-project" className="btn-ghost-dark">استعلام پروژه</a></div>
+      <div className="hero-ctas"><a href="#repair-request" className="btn-primary btn-highlight">ثبت درخواست تعمیر</a><a href="#custom-project" className="btn-project-cta"><span>ثبت سفارش پروژه</span><b>←</b></a></div>
       <ul className="hero-assurances" aria-label="مزیت‌های خدمات ولتینا"><li>ثبت درخواست سریع</li><li>بررسی توسط کارشناس</li><li>اطلاع‌رسانی شفاف</li></ul>
     </div>
     <aside className="hero-quick-panel" aria-label="شروع سریع">

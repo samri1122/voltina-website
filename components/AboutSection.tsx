@@ -1,14 +1,15 @@
 export default function AboutSection() {
   return (
     <section className="about-split" id="about">
-      <div className="wrap about-grid">
-        <div className="about-img reveal">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/placeholders/electronics-card.svg"
-            alt="نمای نزدیک برد الکترونیکی"
+        <div className="wrap about-grid">
+          <div className="about-img reveal">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+            src="/images/about.png"
+            alt="کارشناس Voltina در حال تعمیر و عیب‌یابی برد الکترونیکی"
             loading="lazy"
           />
+          <div className="about-image-badge"><span>✓</span> عیب‌یابی دقیق و قابل‌پیگیری</div>
         </div>
         <div className="about-copy reveal">
           <div className="sec-eyebrow">درباره ما</div>
@@ -18,6 +19,10 @@ export default function AboutSection() {
             استاندارد کیفیت ارائه می‌ده. هدف ما اینه که هر مشتری، چه یه فرد باشه چه یه کارخانه، بهترین راهکار
             الکترونیکی رو با قیمت منصفانه دریافت کنه.
           </p>
+          <div className="about-mini-stats" aria-label="مزیت‌های Voltina">
+            <span><b>تعمیر</b> بردهای صنعتی و خانگی</span>
+            <span><b>طراحی</b> پروژه و PCB سفارشی</span>
+          </div>
         </div>
       </div>
 

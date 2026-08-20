@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
 import Footer from "@/components/Footer";
+import BlogHeader from "@/components/BlogHeader";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -24,16 +24,23 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
   const post = blogPosts.find((p) => p.slug === params.slug);
   if (!post) notFound();
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://voltina-website.vercel.app";
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    image: `${siteUrl}${post.image}`,
+    inLanguage: "fa-IR",
+    author: { "@type": "Organization", name: "Voltina Electronics" },
+    publisher: { "@type": "Organization", name: "Voltina Electronics" },
+    mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
+  };
+
   return (
     <>
-      <header className="blog-header">
-        <div className="wrap">
-          <Link href="/" className="brand"><img src="/images/voltina-mark.png" alt="Voltina Electronics" /></Link>
-          <Link href="/blog" className="back">
-            ← بازگشت به وبلاگ
-          </Link>
-        </div>
-      </header>
+      <BlogHeader backHref="/blog" backLabel="بازگشت به مقالات" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <article className="blog-article">
         <div className="article-hero-img">

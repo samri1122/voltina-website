@@ -1,6 +1,11 @@
 import { BlogPost } from "@/types";
 
-const image = "/images/placeholders/electronics-card.svg";
+const articleImages = [
+  "/images/blog/cover-1.jpg",
+  "/images/blog/cover-2.jpg",
+  "/images/blog/cover-3.jpg",
+  "/images/blog/cover-4.jpg",
+];
 
 const topics: Array<[string, string, string, string]> = [
   ["esp32-programming-guide", "برنامه‌نویسی ESP32 از کجا شروع کنیم؟", "ESP32", "نقشه راه انتخاب برد، نصب محیط برنامه‌نویسی و ساخت اولین پروژه IoT با ESP32."],
@@ -25,11 +30,11 @@ const topics: Array<[string, string, string, string]> = [
   ["mashhad-electronics-repair-guide", "انتخاب تعمیرکار برد الکترونیک در مشهد؛ چه سوال‌هایی بپرسیم؟", "تعمیرات برد مشهد", "معیارهای شفاف برای انتخاب خدمات تعمیر برد، زمان‌بندی، ضمانت و برآورد هزینه در مشهد."],
 ];
 
-export const seoBlogPosts: BlogPost[] = topics.map(([slug, title, tag, description]) => ({
+export const seoBlogPosts: BlogPost[] = topics.map(([slug, title, tag, description], index) => ({
   slug,
   title,
   tag,
   description,
-  image,
+  image: articleImages[index % articleImages.length],
   bodyHtml: `<p>${description} در Voltina تلاش می‌کنیم قبل از هر اقدام، مسئله را دقیق و قابل اندازه‌گیری بررسی کنیم تا تصمیم فنی و اقتصادی بهتری گرفته شود.</p><h2>نکات کلیدی</h2><ul><li>مشخصات دستگاه، مدل و علائم خطا را ثبت کنید.</li><li>از اتصال یا دستکاری مدار برق‌دار خودداری کنید.</li><li>برای برآورد دقیق، عکس واضح و شرح مرحله‌به‌مرحله آماده کنید.</li></ul><h2>جمع‌بندی</h2><p>انتخاب درست قطعه یا روش تعمیر، از هزینه و توقف اضافی جلوگیری می‌کند. برای مشاوره دربارهٔ تعمیر برد، برنامه‌نویسی ESP32، پروژه دانشجویی یا پروژه صنعتی می‌توانید با تیم Voltina در مشهد در ارتباط باشید.</p>`,
 }));

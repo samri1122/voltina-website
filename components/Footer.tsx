@@ -5,8 +5,10 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-grid">
         <div>
-          <div className="footer-logo-image">
-            <img src="/images/voltina-brand.png" alt="Voltina Electronics" />
+          <div className="footer-logo-image" aria-label="Voltina Electronics">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/voltina-mark.png" alt="Voltina" />
+            <span>VOLTINA<small>Electronics</small></span>
           </div>
           <p>ارائه‌دهنده‌ی خدمات تخصصی تعمیر، طراحی و فروش قطعات الکترونیکی.</p>
           <div className="social-row">

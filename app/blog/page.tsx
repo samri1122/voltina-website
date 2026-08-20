@@ -3,6 +3,7 @@ import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import { blogPosts } from "@/data/blog";
 import Footer from "@/components/Footer";
+import BlogHeader from "@/components/BlogHeader";
 
 export const metadata: Metadata = {
   title: "وبلاگ Voltina — مقالات آموزشی الکترونیک",
@@ -11,16 +12,20 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndexPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://voltina-website.vercel.app";
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "دانشنامه Voltina",
+    description: "مقالات تعمیرات برد، ESP32، میکروکنترلر و طراحی PCB در مشهد.",
+    url: `${siteUrl}/blog`,
+    inLanguage: "fa-IR",
+    publisher: { "@type": "Organization", name: "Voltina Electronics" },
+  };
   return (
     <>
-      <header className="blog-header">
-        <div className="wrap">
-          <Link href="/" className="brand"><img src="/images/voltina-mark.png" alt="Voltina Electronics" /></Link>
-          <Link href="/" className="back">
-            ← بازگشت به سایت
-          </Link>
-        </div>
-      </header>
+      <BlogHeader />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
 
       <section className="blog-hero">
         <div className="wrap">
@@ -32,8 +37,6 @@ export default function BlogIndexPage() {
           </p>
         </div>
       </section>
-      <Footer />
-
       <section className="blog-list">
         <div className="wrap">
           <div className="blog-grid">
@@ -57,6 +60,7 @@ export default function BlogIndexPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
