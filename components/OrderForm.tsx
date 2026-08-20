@@ -20,7 +20,7 @@ export default function OrderForm() {
   return (
     <section className="light form-section" id="order-form">
       <div className="wrap">
-        <div className="sec-head reveal">
+        <div className="sec-head">
           <div className="sec-eyebrow">ثبت سفارش</div>
           <h2>ثبت سفارش و خرید</h2>
           <p>
@@ -29,7 +29,7 @@ export default function OrderForm() {
           </p>
         </div>
         <div className="form-grid">
-          <div className="form-card reveal">
+          <div className="form-card">
             <div className="form-card-head">
               <div className="form-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#2F6FEB" strokeWidth={1.7}>
