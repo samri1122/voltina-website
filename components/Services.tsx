@@ -11,8 +11,8 @@ export default function Services() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div className="sec-eyebrow">خدمات ما</div>
-          <h2>راهکارهای الکترونیکی، از تعمیر تا طراحی</h2>
-          <p>از عیب‌یابی و تعمیر گرفته تا طراحی سیستم‌های کنترل هوشمند — همه‌چیز زیر یک سقف.</p>
+          <h2>راهکارهای الکترونیکی، از ایده تا PCB و محصول</h2>
+          <p>طراحی مدار، برنامه‌نویسی، نمونه‌سازی و ساخت سیستم‌های کنترل هوشمند؛ تعمیر تخصصی هم در کنار این خدمات انجام می‌شود.</p>
         </div>
 
         <div className="services-grid">
@@ -52,7 +52,7 @@ export default function Services() {
           <div className="mid-banner-img">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/placeholders/electronics-card.svg"
+              src="/images/blog/industrial-control.jpg"
               alt="اتاق کنترل صنعتی مجهز به تجهیزات الکترونیکی"
               loading="lazy"
             />

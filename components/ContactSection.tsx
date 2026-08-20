@@ -7,8 +7,8 @@ export default function ContactSection() {
           <span className="eyebrow">ارتباط با ما</span>
           <h2>ایده‌ی شما، راهکار ما</h2>
           <div className="final-cta-btns">
-            <a href="tel:+989015039653" className="btn-primary">
-              تماس با ما
+            <a href="https://wa.me/989015039653" target="_blank" rel="noopener" className="btn-primary">
+              تماس در واتساپ
             </a>
             <a href="#portfolio" className="btn-ghost-dark">
               مشاهده نمونه کارها
@@ -22,7 +22,7 @@ export default function ContactSection() {
             </svg>
             <span dir="ltr">0901 503 9653</span>
           </a>
-          <a href="#contact" className="fc-info-item">
+          <a href="https://www.google.com/maps/search/?api=1&query=Mashhad%2C+Iran" target="_blank" rel="noopener" className="fc-info-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="#4C8DFF" strokeWidth={1.7}>
               <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z" />
               <circle cx="12" cy="10" r="3" />

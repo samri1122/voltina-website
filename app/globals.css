@@ -197,6 +197,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.9);backdrop-fi
 .hero-assurances{display:flex;flex-wrap:wrap;gap:10px 18px;list-style:none;padding:0;margin:0;color:#C6CEE0;font-size:.82rem;font-weight:600;}
 .hero-assurances li{display:flex;align-items:center;gap:7px;}
 .hero-assurances li::before{content:"";width:7px;height:7px;border-radius:50%;background:#50d89d;box-shadow:0 0 0 4px rgba(80,216,157,.12);}
+.project-workflow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:28px;color:#b9c9e5;font-size:.73rem;font-weight:700;}.project-workflow span{display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:8px;background:rgba(255,255,255,.055);border:1px solid var(--line-dark);}.project-workflow b{color:#70a5ff;font:800 .72rem Arial,sans-serif;}.project-workflow i{color:#5e8ee7;font-style:normal;animation:workflow-pulse 1.8s ease-in-out infinite;}@keyframes workflow-pulse{50%{opacity:.35;transform:translateX(-3px);}}
 .btn-primary{background:var(--blue);color:#fff;padding:14px 26px;border-radius:9px;font-weight:700;font-size:.95rem;transition:.2s;display:inline-block;}
 .btn-primary:hover{background:var(--blue-light);transform:translateY(-2px);}
 .btn-ghost-dark{border:1px solid rgba(255,255,255,.25);color:#fff;padding:14px 26px;border-radius:9px;font-weight:600;font-size:.95rem;transition:.2s;display:inline-block;}
