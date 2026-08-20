@@ -63,7 +63,7 @@ export function InvoiceStudio() {
 
       <article className="invoice-paper">
         <div className="invoice-hero">
-          <div className="brand-lockup"><img src="/images/voltina-logo.png" alt="Voltina Electronics" /><div><strong>VOLTINA</strong><span>الکترونیک • تعمیرات • پروژه‌های هوشمند</span></div></div>
+          <div className="brand-lockup"><img src="/images/voltina-mark.png" alt="Voltina Electronics" /><div><strong>VOLTINA</strong><span>الکترونیک • تعمیرات • پروژه‌های هوشمند</span></div></div>
           <div className="invoice-title"><small>INVOICE / فاکتور رسمی</small><h2>{kindNames[kind]}</h2></div>
         </div>
         <div className="invoice-bar"><span>شماره فاکتور: <b>{invoiceNo}</b></span><span>تاریخ صدور: <b>{date}</b></span><span className={status === "تسویه شده" ? "settled" : status === "بیعانه دریافت شد" ? "partial" : "pending"}>{status}</span></div>

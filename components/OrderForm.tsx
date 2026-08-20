@@ -60,6 +60,11 @@ export default function OrderForm() {
                 </div>
               </div>
 
+              <div className="f-row">
+                <div className="f-field"><label htmlFor="orderContactWay">راه ارتباطی ترجیحی <span className="req">*</span></label><select id="orderContactWay" name="orderContactWay" required defaultValue=""><option value="" disabled>انتخاب کنید</option><option>تماس تلفنی</option><option>واتساپ</option><option>تلگرام</option><option>ایمیل</option></select></div>
+                <div className="f-field"><label htmlFor="orderContactId">آیدی تلگرام / ایمیل (در صورت انتخاب)</label><input type="text" id="orderContactId" name="orderContactId" placeholder="مثلاً @username یا email@example.com" /></div>
+              </div>
+
               <div className="f-field">
                 <label htmlFor="orderProduct">
                   محصول موردنظر <span className="req">*</span>

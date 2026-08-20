@@ -3,6 +3,7 @@ import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
+import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -14,6 +15,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: `${post.title} | وبلاگ Voltina`,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: { title: post.title, description: post.description, type: "article", images: [post.image] },
   };
 }
 
@@ -25,9 +28,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
     <>
       <header className="blog-header">
         <div className="wrap">
-          <Link href="/" className="brand">
-            Voltina
-          </Link>
+          <Link href="/" className="brand"><img src="/images/voltina-mark.png" alt="Voltina Electronics" /></Link>
           <Link href="/blog" className="back">
             ← بازگشت به وبلاگ
           </Link>
@@ -58,6 +59,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
           </div>
         </div>
       </article>
+      <Footer />
     </>
   );
 }

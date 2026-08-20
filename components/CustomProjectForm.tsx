@@ -78,6 +78,11 @@ export default function CustomProjectForm() {
                 </div>
               </div>
 
+              <div className="f-row">
+                <div className="f-field"><label htmlFor="projContactWay">راه ارتباطی ترجیحی <span className="req">*</span></label><select id="projContactWay" name="projContactWay" required defaultValue=""><option value="" disabled>انتخاب کنید</option><option>تماس تلفنی</option><option>واتساپ</option><option>تلگرام</option><option>ایمیل</option></select></div>
+                <div className="f-field"><label htmlFor="projContactId">آیدی تلگرام / ایمیل (در صورت انتخاب)</label><input type="text" id="projContactId" name="projContactId" placeholder="مثلاً @username یا email@example.com" /></div>
+              </div>
+
               <div className="f-field">
                 <label htmlFor="projDesc">
                   شرح کامل پروژه <span className="req">*</span>

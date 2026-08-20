@@ -21,6 +21,7 @@ export default function HomePage() {
     <ModalProvider>
       <Header />
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", name: "Voltina Electronics", description: "تعمیرات برد و طراحی پروژه الکترونیک در مشهد", telephone: "+989015039653", email: "sam864116@gmail.com", address: { "@type": "PostalAddress", addressLocality: "مشهد", addressCountry: "IR" }, areaServed: "مشهد", sameAs: ["https://t.me/VOLTINA_C", "https://instagram.com/VOLTINA_C"] }) }} />
         <Hero />
         <ServiceSteps />
         <CustomProjectForm />

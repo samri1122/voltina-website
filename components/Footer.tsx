@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="wrap footer-grid">
         <div>
           <div className="footer-logo-image">
-            <img src="/images/voltina-logo.png" alt="Voltina Electronics" />
+            <img src="/images/voltina-brand.png" alt="Voltina Electronics" />
           </div>
           <p>ارائه‌دهنده‌ی خدمات تخصصی تعمیر، طراحی و فروش قطعات الکترونیکی.</p>
           <div className="social-row">

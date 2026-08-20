@@ -93,6 +93,11 @@ export default function RepairRequestForm() {
                 </div>
               </div>
 
+              <div className="f-row">
+                <div className="f-field"><label htmlFor="repContactWay">راه ارتباطی ترجیحی <span className="req">*</span></label><select id="repContactWay" name="repContactWay" required defaultValue=""><option value="" disabled>انتخاب کنید</option><option>تماس تلفنی</option><option>واتساپ</option><option>تلگرام</option><option>ایمیل</option></select></div>
+                <div className="f-field"><label htmlFor="repContactId">آیدی تلگرام / ایمیل (در صورت انتخاب)</label><input type="text" id="repContactId" name="repContactId" placeholder="مثلاً @username یا email@example.com" /></div>
+              </div>
+
               <div className="f-field">
                 <label htmlFor="repDesc">
                   شرح مشکل <span className="req">*</span>

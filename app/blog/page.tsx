@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
 import { blogPosts } from "@/data/blog";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "وبلاگ Voltina — مقالات آموزشی الکترونیک",
@@ -14,9 +15,7 @@ export default function BlogIndexPage() {
     <>
       <header className="blog-header">
         <div className="wrap">
-          <Link href="/" className="brand">
-            Voltina
-          </Link>
+          <Link href="/" className="brand"><img src="/images/voltina-mark.png" alt="Voltina Electronics" /></Link>
           <Link href="/" className="back">
             ← بازگشت به سایت
           </Link>
@@ -33,6 +32,7 @@ export default function BlogIndexPage() {
           </p>
         </div>
       </section>
+      <Footer />
 
       <section className="blog-list">
         <div className="wrap">

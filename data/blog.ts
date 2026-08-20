@@ -1,4 +1,5 @@
 import { BlogPost } from "@/types";
+import { seoBlogPosts } from "./blog-extra";
 
 export const blogPosts: BlogPost[] = [
   {
@@ -161,4 +162,5 @@ export const blogPosts: BlogPost[] = [
     image: "/images/placeholders/electronics-card.svg",
     bodyHtml: "<p>هرچه ورودی‌های پروژه از ابتدا روشن‌تر باشد، طراحی برد سریع‌تر و قابل‌اعتمادتر پیش می‌رود.</p><h2>مواردی که باید مشخص شوند</h2><ul><li>کارکرد اصلی و شرایط محیطی محصول</li><li>ولتاژهای ورودی و خروجی و مصرف تقریبی</li><li>ابعاد و نوع محفظه</li><li>کانکتورها، نمایشگر، کلیدها و سنسورهای موردنیاز</li><li>تعداد نمونه اولیه و برنامه تولید آینده</li></ul><p>یک شماتیک اولیه، عکس نمونه مشابه یا حتی فهرست نیازها برای شروع گفت‌وگوی فنی بسیار کمک‌کننده است.</p>",
   },
+  ...seoBlogPosts,
 ];
