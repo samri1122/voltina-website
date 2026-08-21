@@ -640,8 +640,17 @@ header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.9);backdrop-fi
   .service-journey{padding-bottom:56px;}
   .journey-intro{align-items:start;flex-direction:column;padding:28px 22px 22px;gap:18px;}
   .journey-step{padding:22px;}
-  .pill-row,.services-grid,.why-grid,.portfolio-grid,.shop-grid,.footer-grid,.shop-trust{grid-template-columns:1fr;}
+  .pill-row,.why-grid,.footer-grid,.shop-trust{grid-template-columns:1fr;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .shop-toolbar{flex-direction:column;align-items:stretch;}
   .shop-tabs{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;}
+}
+
+@media (max-width:640px){
+  .wrap{padding-inline:16px;}
+  .services-grid,.portfolio-grid,.shop-grid,.testi-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch;}
+  .services-grid .svc-card,.portfolio-grid .pf-card,.shop-grid .shop-card,.testi-grid .testi-card{min-width:0;height:100%;}
+}
+@media (max-width:360px){
+  .services-grid,.portfolio-grid,.shop-grid,.testi-grid{grid-template-columns:1fr;}
 }
