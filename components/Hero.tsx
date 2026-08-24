@@ -1,3 +1,5 @@
+import HeroProjectTicker from "./HeroProjectTicker";
+
 const options = [
   { href: "#custom-project", label: "ساخت پروژه اختصاصی", text: "از ایده تا طراحی و ساخت", icon: "circuit" },
   { href: "#repair-request", label: "تعمیر دستگاه یا برد", text: "ثبت مشکل و ارسال تصویر دستگاه", icon: "repair" },
@@ -17,12 +19,11 @@ export default function Hero() {
       <h1>ایدهٔ شما را به <span>مدار، برد و محصول قابل‌تست</span> تبدیل می‌کنیم.</h1>
       <p>از تحلیل نیاز و شماتیک تا طراحی PCB، برنامه‌نویسی ESP32 و ساخت نمونه اولیه؛ پروژهٔ دانشجویی، صنعتی یا محصول جدیدتان را حرفه‌ای شروع کنید.</p>
       <div className="hero-ctas"><a href="#custom-project" className="btn-project-cta"><span>ثبت سفارش پروژه</span><b>←</b></a><a href="#repair-request" className="btn-primary btn-highlight">درخواست تعمیر برد</a></div>
-      <ul className="hero-assurances" aria-label="مزیت‌های خدمات ولتینا"><li>تحلیل فنی پیش از ساخت</li><li>طراحی قابل تولید</li><li>گزارش و اطلاع‌رسانی شفاف</li></ul>
-      <div className="project-workflow" aria-label="مسیر اجرای پروژه"><span><b>01</b> تحلیل نیاز</span><i>→</i><span><b>02</b> طراحی PCB</span><i>→</i><span><b>03</b> نمونه و تست</span></div>
     </div>
     <aside className="hero-quick-panel" aria-label="شروع سریع">
       <div className="quick-panel-head"><span>شروع سریع</span><strong>امروز به چه چیزی نیاز دارید؟</strong><p>مسیر درست را انتخاب کنید تا مستقیم به فرم مرتبط بروید.</p></div>
       <div className="quick-options">{options.map((option) => <a href={option.href} key={option.href} className="quick-option"><span className="quick-option-icon"><OptionIcon type={option.icon} /></span><span><b>{option.label}</b><small>{option.text}</small></span><i>←</i></a>)}</div>
+      <HeroProjectTicker />
       <div className="quick-panel-foot"><span className="live-dot" /> پاسخ‌گویی از طریق تماس و واتساپ</div>
     </aside>
   </div></section>;

@@ -1,23 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import SafeImage from "./SafeImage";
 import { portfolioProjects } from "@/data/portfolio";
+import { projectShowcase } from "@/data/project-showcase";
 import { useModal } from "./ModalProvider";
 
 export default function Portfolio() {
   const { openProjectModal } = useModal();
+  const [shown, setShown] = useState(6);
+  const projects = [...portfolioProjects, ...projectShowcase];
 
   return (
     <section id="portfolio">
       <div className="wrap">
         <div className="sec-head reveal">
           <div className="sec-eyebrow">نمونه کارها</div>
-          <h2>پروژه‌های موفق انجام‌شده</h2>
-          <p>بخشی از پروژه‌هایی که تیم فنی Voltina طراحی، تعمیر یا پیاده‌سازی کرده است.</p>
+          <h2>نمونه‌پروژه‌های طراحی و اجرا</h2>
+          <p>پروژه‌های منتخب و نمونه‌های اجرایی برای STM32، ESP32، اتوماسیون صنعتی، تجهیزات پزشکی و طراحی PCB.</p>
         </div>
 
         <div className="portfolio-grid">
-          {portfolioProjects.map((proj) => (
+          {projects.slice(0, shown).map((proj) => (
             <div className="pf-card" key={proj.key}>
               <div className="pf-thumb">
                 <span className="pf-tag">{proj.tag}</span>
@@ -33,6 +37,7 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+        {shown < projects.length && <div className="portfolio-more"><button type="button" onClick={() => setShown((value) => Math.min(value + 6, projects.length))}>نمایش پروژه‌های بیشتر <span>←</span></button><small>{shown} از {projects.length} پروژه</small></div>}
       </div>
     </section>
   );
