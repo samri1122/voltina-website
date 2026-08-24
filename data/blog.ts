@@ -2,29 +2,6 @@ import { BlogPost } from "@/types";
 import { seoBlogPosts } from "./blog-extra";
 import { trendBlogPosts } from "./blog-trends";
 
-const localBlogImages = [
-  "/images/blog/cover-1.jpg",
-  "/images/blog/cover-2.jpg",
-  "/images/blog/cover-3.jpg",
-  "/images/blog/cover-4.jpg",
-];
-
-function imageForTopic(post: BlogPost, index: number) {
-  const subject = `${post.title} ${post.tag} ${post.slug}`;
-  if (/پزشکی|medical|health|بیمار|پایش/.test(subject)) return "/images/blog/medical-lab.jpg";
-  if (/ابزار دقیق|سنسور|دما|فشار|اسیلوسکوپ|مولتی/.test(subject)) return "/images/blog/instrumentation.jpg";
-  if (/یخچال|فریزر|appliance/.test(subject)) return "/images/blog/appliance-board.jpg";
-  if (/منبع تغذیه|پاور|battery|انرژی|خورشیدی|شارژ|ولت/.test(subject)) return "/images/blog/power-electronics.jpg";
-  if (/صنعتی|اتوماسیون|PLC|اینورتر|motor|برد صنعتی/.test(subject)) return "/images/blog/industrial-control.jpg";
-  if (/هوش مصنوعی|AI|TinyML|دوقلوی|بینایی ماشین/.test(subject)) return "/images/blog/ai-electronics.jpg";
-  if (/ربات|robot/.test(subject)) return "/images/blog/robotics.jpg";
-  if (/ESP32|آردوینو|IoT|وای.?فای|رله|شبکه/.test(subject)) return "/images/blog/iot-lab.jpg";
-  if (/PCB|برد|SMD|خازن|لحیم|مدار|الکترونیک/.test(subject)) return "/images/blog/pcb-design.jpg";
-  return post.image.startsWith("http") || post.image.includes("/placeholders/")
-    ? localBlogImages[index % localBlogImages.length]
-    : post.image;
-}
-
 export const blogPosts: BlogPost[] = [
   {
     slug: "esp32-getting-started",
@@ -188,7 +165,7 @@ export const blogPosts: BlogPost[] = [
   },
   ...seoBlogPosts,
   ...trendBlogPosts,
-].map((post, index) => ({
+].map((post) => ({
   ...post,
-  image: imageForTopic(post, index),
+  image: `/images/blog/posts/${post.slug}.jpg`,
 }));
