@@ -12,6 +12,10 @@ async function hash(value: string) {
   return Array.from(new Uint8Array(digest)).map((part) => part.toString(16).padStart(2, "0")).join("");
 }
 
+function normalizePhone(value: string) {
+  return value.replace(/[۰-۹]/g, (digit) => "۰۱۲۳۴۵۶۷۸۹".indexOf(digit).toString()).replace(/[٠-٩]/g, (digit) => "٠١٢٣٤٥٦٧٨٩".indexOf(digit).toString());
+}
+
 export default function CustomerAccessGate({ children, title = "برای ثبت درخواست، وارد حساب مشتری شوید" }: { children: ReactNode; title?: string }) {
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [mode, setMode] = useState<"login" | "signup">("login");
@@ -31,7 +35,7 @@ export default function CustomerAccessGate({ children, title = "برای ثبت 
     const saved = localStorage.getItem(CUSTOMER_KEY);
     if (mode === "signup") {
       const name = String(fields.get("name") || "").trim();
-      const phone = String(fields.get("phone") || "").trim();
+      const phone = normalizePhone(String(fields.get("phone") || "").trim());
       if (!name || !/^09\d{9}$/.test(phone) || !email || password.length < 8) { setMessage("نام، شمارهٔ معتبر، ایمیل و رمز حداقل ۸ کاراکتری لازم است."); return; }
       if (saved && JSON.parse(saved).email === email) { setMessage("این ایمیل قبلاً ثبت شده است؛ وارد شوید."); setMode("login"); return; }
       const next = { name, phone, email, passwordHash: await hash(password) };
