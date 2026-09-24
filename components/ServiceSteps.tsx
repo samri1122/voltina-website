@@ -6,7 +6,7 @@ const steps = [
 
 export default function ServiceSteps() {
   return <section className="service-journey" aria-labelledby="journey-title"><div className="wrap">
-    <div className="journey-intro"><div><span className="journey-kicker">روند شفاف خدمات</span><h2 id="journey-title">از خرابی دستگاه تا راه‌حل، سه قدم فاصله دارید</h2></div><a href="#repair-request" className="journey-link">ثبت درخواست تعمیر ←</a></div>
+    <div className="journey-intro"><div><span className="journey-kicker">روند شفاف خدمات</span><h2 id="journey-title">از خرابی دستگاه تا راه‌حل، سه قدم فاصله دارید</h2></div><a href="/repairs" className="journey-link">ثبت درخواست تعمیر ←</a></div>
     <ol className="journey-steps">{steps.map((step) => <li key={step.number} className="journey-step"><span className="journey-number">{step.number}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}</ol>
   </div></section>;
 }

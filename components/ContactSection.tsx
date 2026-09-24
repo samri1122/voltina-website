@@ -10,7 +10,7 @@ export default function ContactSection() {
             <a href="https://wa.me/989015039653" target="_blank" rel="noopener" className="btn-primary">
               تماس در واتساپ
             </a>
-            <a href="#portfolio" className="btn-ghost-dark">
+            <a href="/projects" className="btn-ghost-dark">
               مشاهده نمونه کارها
             </a>
           </div>

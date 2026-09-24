@@ -13,8 +13,8 @@ export default function HeroProjectTicker() {
     return () => window.clearInterval(interval);
   }, []);
   const project = projects[current];
-  return <a href="#portfolio" className="hero-project-ticker" aria-label={`مشاهده ${project.title}`}>
-    <SafeImage key={project.key} src={project.image} alt={project.title} width={210} height={118} />
+  return <a href="/projects" className="hero-project-ticker" aria-label={`مشاهده ${project.title}`}>
+    <SafeImage key={project.key} src={project.image} alt={project.title} width={300} height={168} />
     <span><small>نمونه‌پروژه‌های Voltina</small><b>{project.title}</b><em>{project.tag} ←</em></span>
   </a>;
 }

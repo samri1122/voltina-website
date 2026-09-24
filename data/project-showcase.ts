@@ -2,6 +2,25 @@ import { PortfolioProject } from "@/types";
 
 type Blueprint = [string, string, string, string, string];
 
+const projectImagePool = [
+  "https://images.unsplash.com/photo-1631378961385-21bee7eb41ad?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1631376604269-6f42b26fa9b7?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1631376604914-572212a3ede5?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1562877773-a37120131ec4?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1560846389-8c7e1d88eca8?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1634452015397-ad0686a2ae2d?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1631376604944-ddb97deb9839?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1649559295229-961cbad5d13f?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1768633647910-7e6fb53e5b0f?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1777153184385-cff867582a1c?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1521798604188-0d6595d6d6ae?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1676630444903-163fe485c5d1?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1563456019560-2b37aa7ad890?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1685720543547-cc4873188c75?auto=format&fit=crop&w=1000&h=680&q=82",
+  "https://images.unsplash.com/photo-1543617080-0db79d35e926?auto=format&fit=crop&w=1000&h=680&q=82",
+];
+
 const blueprints: Blueprint[] = [
   ["stm32-lab-controller", "STM32 · پروژه دانشجویی", "کنترلر آزمایشگاهی چندکاناله با STM32", "کنترل سنسورها و نمایش داده برای یک پروژه قابل ارائه.", "/images/blog/posts/microcontroller-project-idea.jpg"],
   ["stm32-data-logger", "STM32 · ابزار دقیق", "دیتالاگر دما و فشار با حافظه داخلی", "ثبت پایدار داده و خروجی قابل تحلیل برای کارگاه یا آزمایشگاه.", "/images/blog/posts/precision-temperature-measurement.jpg"],
@@ -45,8 +64,32 @@ const blueprints: Blueprint[] = [
   ["smart-building-hvac", "ساختمان هوشمند", "کنترلر هوشمند تهویه و روشنایی", "تنظیم انرژی بر اساس حضور، دما و برنامه زمانی.", "/images/blog/posts/smart-building-energy-control.jpg"],
 ];
 
-export const projectShowcase: PortfolioProject[] = blueprints.map(([key, tag, title, challenge, image]) => ({
-  key, tag, title, challenge, image,
-  action: "معماری سخت‌افزار، انتخاب قطعات و طراحی قابل تست برای این نمونه‌پروژه تعریف می‌شود.",
-  result: "این نمونه‌پروژه برای نمایش مسیر اجرایی و گفت‌وگوی فنی پیش از شروع سفارش واقعی آماده است.",
+function projectDetails(tag: string, title: string) {
+  const base = `برای «${title}» ابتدا نیازمندی‌ها، محدوده ولتاژ، ورودی‌ و خروجی‌ها و شرایط محیطی مشخص می‌شود.`;
+  if (/STM32|ESP32|دانشجویی|IoT/.test(tag)) return {
+    action: `${base} سپس شماتیک، برنامه‌نویسی ماژول‌ها، تست ارتباطات و مستندات کد به‌صورت مرحله‌ای آماده می‌شود تا توسعه و ارائه پروژه قابل پیگیری باشد.`,
+    result: "خروجی مورد انتظار شامل نمونه اولیه قابل نمایش، سورس کد ساختاریافته، شماتیک و راهنمای راه‌اندازی برای ارائه یا توسعه بعدی است.",
+  };
+  if (/پزشکی/.test(tag)) return {
+    action: `${base} معماری تغذیه، ایزولاسیون، رفتار خطا، ثبت وضعیت و قابلیت سرویس‌پذیری با حساسیت تجهیزات پزشکی در نظر گرفته می‌شود.`,
+    result: "خروجی مورد انتظار یک طرح قابل آزمون با نقاط تست مشخص، گزارش بررسی عملکرد و مسیر روشن برای ارزیابی تخصصی ایمنی است.",
+  };
+  if (/PCB|قدرت|انرژی/.test(tag)) return {
+    action: `${base} انتخاب قطعه، جانمایی، مسیرهای جریان، مدیریت حرارت و بازبینی DFM پیش از آماده‌سازی فایل‌های تولید انجام می‌شود.`,
+    result: "خروجی مورد انتظار شامل شماتیک، BOM، فایل‌های ساخت PCB، نسخه‌بندی طراحی و چک‌لیست تست نمونه اولیه است.",
+  };
+  if (/صنعتی|اتوماسیون|ساختمان/.test(tag)) return {
+    action: `${base} منطق کنترل، حفاظت‌های ورودی/خروجی، سیم‌کشی قابل سرویس، ثبت خطا و سناریوهای توقف ایمن در طراحی لحاظ می‌شود.`,
+    result: "خروجی مورد انتظار یک طرح ماژولار با نقشه اتصالات، جدول I/O، سناریوی تست و مسیر نگهداری قابل برنامه‌ریزی است.",
+  };
+  return {
+    action: `${base} معماری سخت‌افزار، انتخاب قطعه، نمونه‌سازی و تست مرحله‌ای برای رسیدن به خروجی قابل ارائه تعریف می‌شود.`,
+    result: "خروجی مورد انتظار شامل نمونه اولیه، مستندات فنی و برنامه روشن برای تست و توسعه نسخه بعدی است.",
+  };
+}
+
+export const projectShowcase: PortfolioProject[] = blueprints.map(([key, tag, title, challenge], index) => ({
+  key, tag, title, challenge,
+  image: projectImagePool[index % projectImagePool.length],
+  ...projectDetails(tag, title),
 }));

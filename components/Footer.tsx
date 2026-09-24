@@ -39,10 +39,10 @@ export default function Footer() {
           <h5>خدمات</h5>
           <ul>
             <li>
-              <a href="#custom-project">ساخت پروژه اختصاصی</a>
+              <Link href="/projects/order">ساخت پروژه اختصاصی</Link>
             </li>
             <li>
-              <a href="#repair-request">ثبت درخواست تعمیر</a>
+              <Link href="/repairs">ثبت درخواست تعمیر</Link>
             </li>
             <li>
               <Link href="/shop#order-form">ثبت سفارش خرید</Link>
@@ -59,16 +59,16 @@ export default function Footer() {
           <h5>شرکت</h5>
           <ul>
             <li>
-              <a href="#about">درباره ما</a>
+              <Link href="/about">درباره ما</Link>
             </li>
             <li>
-              <a href="#portfolio">نمونه کارها</a>
+              <Link href="/projects">نمونه کارها</Link>
             </li>
             <li>
               <Link href="/blog">وبلاگ</Link>
             </li>
             <li>
-              <a href="#contact">تماس با ما</a>
+              <Link href="/contact">تماس با ما</Link>
             </li>
           </ul>
         </div>
@@ -77,7 +77,7 @@ export default function Footer() {
           <h5>ارتباط</h5>
           <ul>
             <li>
-              <a href="#contact">ایران، خراسان رضوی، مشهد</a>
+              <Link href="/contact">ایران، خراسان رضوی، مشهد</Link>
             </li>
             <li>
               <a href="tel:+989015039653" dir="ltr">
