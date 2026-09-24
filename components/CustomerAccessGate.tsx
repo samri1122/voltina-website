@@ -6,6 +6,13 @@ type Customer = { name: string; phone: string; email: string; passwordHash: stri
 const CUSTOMER_KEY = "voltina_customer";
 const SESSION_KEY = "voltina_customer_session";
 
+export function requireCustomerLogin(event: FormEvent<HTMLFormElement>, nextPath: string) {
+  if (typeof window !== "undefined" && localStorage.getItem(SESSION_KEY) && localStorage.getItem(CUSTOMER_KEY)) return true;
+  event.preventDefault();
+  window.location.assign(`/account?next=${encodeURIComponent(nextPath)}`);
+  return false;
+}
+
 async function hash(value: string) {
   const bytes = new TextEncoder().encode(value);
   const digest = await crypto.subtle.digest("SHA-256", bytes);
@@ -39,12 +46,17 @@ export default function CustomerAccessGate({ children, title = "برای ثبت 
       if (!name || !/^09\d{9}$/.test(phone) || !email || password.length < 8) { setMessage("نام، شمارهٔ معتبر، ایمیل و رمز حداقل ۸ کاراکتری لازم است."); return; }
       if (saved && JSON.parse(saved).email === email) { setMessage("این ایمیل قبلاً ثبت شده است؛ وارد شوید."); setMode("login"); return; }
       const next = { name, phone, email, passwordHash: await hash(password) };
-      localStorage.setItem(CUSTOMER_KEY, JSON.stringify(next)); localStorage.setItem(SESSION_KEY, "1"); setCustomer(next); return;
+      localStorage.setItem(CUSTOMER_KEY, JSON.stringify(next)); localStorage.setItem(SESSION_KEY, "1"); setCustomer(next); continueToOrder(); return;
     }
     if (!saved) { setMessage("ابتدا یک حساب مشتری بسازید."); setMode("signup"); return; }
     const next = JSON.parse(saved) as Customer;
     if (next.email !== email || next.passwordHash !== await hash(password)) { setMessage("ایمیل یا رمز عبور درست نیست."); return; }
-    localStorage.setItem(SESSION_KEY, "1"); setCustomer(next);
+    localStorage.setItem(SESSION_KEY, "1"); setCustomer(next); continueToOrder();
+  }
+
+  function continueToOrder() {
+    const next = new URLSearchParams(window.location.search).get("next");
+    if (next?.startsWith("/")) window.location.assign(next);
   }
 
   if (customer) return <>{children}</>;

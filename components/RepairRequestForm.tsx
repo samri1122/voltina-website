@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useFormSubmit } from "./useFormSubmit";
-import CustomerAccessGate from "./CustomerAccessGate";
+import { requireCustomerLogin } from "./CustomerAccessGate";
 
 export default function RepairRequestForm() {
   const { status, errorMsg, handleSubmit } = useFormSubmit("/api/repair-request");
   const [fileName, setFileName] = useState("");
 
   return (
-    <CustomerAccessGate title="برای ثبت درخواست تعمیر، وارد حساب مشتری شوید"><section
+    <section
       className="form-section"
       id="repair-request"
       style={{ background: "var(--navy)", padding: "90px 0", position: "relative", overflow: "hidden" }}
@@ -55,7 +55,8 @@ export default function RepairRequestForm() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <a className="form-login-hint" href="/account?next=%2Frepairs">برای ثبت نهایی درخواست، ابتدا وارد حساب مشتری شوید ←</a>
+            <form onSubmit={(event) => { if (requireCustomerLogin(event, "/repairs")) handleSubmit(event); }}>
               <div className="f-row">
                 <div className="f-field">
                   <label htmlFor="repName">
@@ -148,6 +149,6 @@ export default function RepairRequestForm() {
           </div>
         </div>
       </div>
-    </section></CustomerAccessGate>
+    </section>
   );
 }

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useFormSubmit } from "./useFormSubmit";
 import { useModal } from "./ModalProvider";
 import { products } from "@/data/products";
-import CustomerAccessGate from "./CustomerAccessGate";
+import { requireCustomerLogin } from "./CustomerAccessGate";
 
 export default function OrderForm() {
   const { status, errorMsg, handleSubmit } = useFormSubmit("/api/order");
@@ -19,7 +19,7 @@ export default function OrderForm() {
   }, [prefillOrderProduct, setPrefillOrderProduct]);
 
   return (
-    <CustomerAccessGate title="برای ثبت سفارش خرید، وارد حساب مشتری شوید"><section className="light form-section" id="order-form">
+    <section className="light form-section" id="order-form">
       <div className="wrap">
         <div className="sec-head">
           <div className="sec-eyebrow">ثبت سفارش</div>
@@ -45,7 +45,8 @@ export default function OrderForm() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <a className="form-login-hint" href="/account?next=%2Fshop%23order-form">برای ثبت نهایی سفارش، ابتدا وارد حساب مشتری شوید ←</a>
+            <form onSubmit={(event) => { if (requireCustomerLogin(event, "/shop#order-form")) handleSubmit(event); }}>
               <div className="f-row">
                 <div className="f-field">
                   <label htmlFor="orderName">
@@ -137,6 +138,6 @@ export default function OrderForm() {
           </div>
         </div>
       </div>
-    </section></CustomerAccessGate>
+    </section>
   );
 }
