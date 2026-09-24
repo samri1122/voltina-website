@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { useFormSubmit } from "./useFormSubmit";
+import CustomerAccessGate from "./CustomerAccessGate";
 
 export default function RepairRequestForm() {
   const { status, errorMsg, handleSubmit } = useFormSubmit("/api/repair-request");
   const [fileName, setFileName] = useState("");
 
   return (
-    <section
+    <CustomerAccessGate title="برای ثبت درخواست تعمیر، وارد حساب مشتری شوید"><section
       className="form-section"
       id="repair-request"
       style={{ background: "var(--navy)", padding: "90px 0", position: "relative", overflow: "hidden" }}
@@ -147,6 +148,6 @@ export default function RepairRequestForm() {
           </div>
         </div>
       </div>
-    </section>
+    </section></CustomerAccessGate>
   );
 }

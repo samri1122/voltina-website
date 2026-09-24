@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/repairs`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/about`, lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/account`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/shop`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/blog`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     ...blogPosts.map((post) => ({ url: `${base}/blog/${post.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.7 })),

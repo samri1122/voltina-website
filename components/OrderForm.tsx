@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useFormSubmit } from "./useFormSubmit";
 import { useModal } from "./ModalProvider";
 import { products } from "@/data/products";
+import CustomerAccessGate from "./CustomerAccessGate";
 
 export default function OrderForm() {
   const { status, errorMsg, handleSubmit } = useFormSubmit("/api/order");
@@ -18,7 +19,7 @@ export default function OrderForm() {
   }, [prefillOrderProduct, setPrefillOrderProduct]);
 
   return (
-    <section className="light form-section" id="order-form">
+    <CustomerAccessGate title="برای ثبت سفارش خرید، وارد حساب مشتری شوید"><section className="light form-section" id="order-form">
       <div className="wrap">
         <div className="sec-head">
           <div className="sec-eyebrow">ثبت سفارش</div>
@@ -136,6 +137,6 @@ export default function OrderForm() {
           </div>
         </div>
       </div>
-    </section>
+    </section></CustomerAccessGate>
   );
 }

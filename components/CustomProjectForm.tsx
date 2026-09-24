@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { useFormSubmit } from "./useFormSubmit";
+import CustomerAccessGate from "./CustomerAccessGate";
 
 export default function CustomProjectForm() {
   const { status, errorMsg, handleSubmit } = useFormSubmit("/api/custom-project");
   const [fileName, setFileName] = useState("");
 
   return (
-    <section className="form-section custom-project-section" id="custom-project">
+    <CustomerAccessGate title="برای ثبت سفارش پروژه، وارد حساب مشتری شوید"><section className="form-section custom-project-section" id="custom-project">
       <div className="glow" />
       <div className="wrap">
         <div className="sec-head reveal">
@@ -126,6 +127,6 @@ export default function CustomProjectForm() {
           </div>
         </div>
       </div>
-    </section>
+    </section></CustomerAccessGate>
   );
 }

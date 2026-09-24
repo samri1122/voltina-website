@@ -7,4 +7,4 @@ import InnerPageHero from "@/components/InnerPageHero";
 
 export const metadata: Metadata = { title: "تماس با Voltina در مشهد", description: "راه‌های تماس با Voltina: تماس تلفنی، واتساپ، تلگرام، اینستاگرام و ایمیل برای مشاورهٔ الکترونیک در مشهد." };
 
-export default function ContactPage() { return <><Header /><main><InnerPageHero eyebrow="تماس و مشاوره" title="مستقیم با Voltina در ارتباط باشید" description="برای مشاوره، ثبت سفارش پروژه، تعمیر یا پیگیری درخواست، راه ارتباطی مناسب خودتان را انتخاب کنید." /><ContactSection /></main><Footer /><FloatingWhatsApp /></>; }
+export default function ContactPage() { return <><Header /><main><InnerPageHero eyebrow="تماس و مشاوره" title="مستقیم با Voltina در ارتباط باشید" description="برای مشاوره، ثبت سفارش پروژه، تعمیر یا پیگیری درخواست، راه ارتباطی مناسب خودتان را انتخاب کنید." image="/images/blog/instrumentation.jpg" /><ContactSection /></main><Footer /><FloatingWhatsApp /></>; }
