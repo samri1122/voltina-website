@@ -19,6 +19,9 @@ export default function Hero() {
       <h1>ایدهٔ شما را به <span>مدار، برد و محصول قابل‌تست</span> تبدیل می‌کنیم.</h1>
       <p>از تحلیل نیاز و شماتیک تا طراحی PCB، برنامه‌نویسی ESP32 و ساخت نمونه اولیه؛ پروژهٔ دانشجویی، صنعتی یا محصول جدیدتان را حرفه‌ای شروع کنید.</p>
       <div className="hero-ctas"><a href="/projects/order" className="btn-project-cta"><span>ثبت سفارش پروژه</span><b>←</b></a><a href="/repairs" className="btn-primary btn-highlight">درخواست تعمیر برد</a></div>
+      <a className="hero-call-card" href="tel:+989015039653" aria-label="تماس با Voltina">
+        <span className="hero-call-icon">☎</span><span><small>مشاوره و ثبت سفارش</small><b dir="ltr">0901 503 9653</b></span><em>تماس مستقیم ←</em>
+      </a>
     </div>
     <aside className="hero-quick-panel" aria-label="شروع سریع">
       <div className="quick-panel-head"><span>شروع سریع</span><strong>امروز به چه چیزی نیاز دارید؟</strong><p>مسیر درست را انتخاب کنید تا مستقیم به فرم مرتبط بروید.</p></div>

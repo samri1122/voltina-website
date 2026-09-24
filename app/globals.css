@@ -209,6 +209,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.9);backdrop-fi
 .btn-project-cta::before{content:"";position:absolute;z-index:-1;inset:0;transform:translateX(110%);background:linear-gradient(90deg,transparent,rgba(47,111,235,.25),transparent);transition:transform .55s ease;}
 .btn-project-cta b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:var(--blue);color:#fff;line-height:1;}
 .btn-project-cta:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(47,111,235,.38);}.btn-project-cta:hover::before{transform:translateX(-110%);}
+.hero-call-card{display:inline-flex;align-items:center;gap:11px;min-width:285px;padding:10px 12px;border:1px solid rgba(135,183,255,.38);border-radius:13px;background:linear-gradient(110deg,rgba(255,255,255,.11),rgba(76,141,255,.18));box-shadow:0 14px 28px rgba(0,0,0,.18);color:#fff;transition:.22s}.hero-call-card:hover{transform:translateY(-3px);border-color:#8bbaff;background:linear-gradient(110deg,rgba(255,255,255,.16),rgba(76,141,255,.29))}.hero-call-icon{display:grid;place-items:center;width:37px;height:37px;border-radius:10px;background:#fff;color:#2366da;font-size:1.05rem}.hero-call-card small{display:block;color:#bcd0ef;font-size:.68rem}.hero-call-card b{display:block;font:800 .97rem Arial,sans-serif;letter-spacing:.04em}.hero-call-card em{margin-inline-start:auto;color:#9fc5ff;font-size:.7rem;font-style:normal;font-weight:700;white-space:nowrap}
 .pill-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 .pill{background:rgba(255,255,255,.05);border:1px solid var(--line-dark);border-radius:12px;padding:16px 10px;text-align:center;}
 .pill svg{margin:0 auto 8px;width:22px;height:22px;}
@@ -468,26 +469,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(11,20,40,.9);backdrop-fi
 
 .custom-project-section{background:var(--navy);padding:90px 0 100px;position:relative;overflow:hidden;}
 
-/* ---- Floating WhatsApp quick-contact button ---- */
-.float-whatsapp{
-  position:fixed;left:22px;bottom:22px;z-index:999;
-  width:56px;height:56px;border-radius:50%;background:#25D366;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(37,211,102,.45);
-  transition:.2s;
-}
-.float-whatsapp:hover{transform:scale(1.08);}
-.float-whatsapp svg{width:28px;height:28px;}
-.float-whatsapp-tip{
-  position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%);
-  background:#151F33;color:#fff;padding:8px 14px;border-radius:8px;font-size:.82rem;
-  white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;
-}
-.float-whatsapp:hover .float-whatsapp-tip{opacity:1;}
+/* ---- Always available contact dock ---- */
+.contact-dock{position:fixed;left:20px;bottom:20px;z-index:999;display:flex;align-items:center;gap:4px;padding:6px 7px 6px 12px;border:1px solid rgba(135,183,255,.35);border-radius:15px;background:rgba(8,20,41,.92);backdrop-filter:blur(15px);box-shadow:0 16px 38px rgba(4,14,32,.35);color:#dce9fc}.contact-dock>span{font-size:.67rem;font-weight:800;color:#9cc5ff;padding-inline-end:5px}.contact-dock a{display:grid;place-items:center;min-height:34px;padding:0 10px;border-radius:9px;background:rgba(255,255,255,.08);font-size:.72rem;font-weight:800;transition:.2s}.contact-dock a:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}.contact-dock-phone{background:#fff!important;color:#112a52!important;font-size:.76rem!important;letter-spacing:.02em}
 @media (max-width:640px){
-  .float-whatsapp{left:16px;bottom:16px;width:50px;height:50px;}
-  .float-whatsapp svg{width:24px;height:24px;}
-  .float-whatsapp-tip{display:none;}
+  .contact-dock{left:10px;right:10px;bottom:10px;justify-content:center;border-radius:13px;padding:6px;}
+  .contact-dock>span{display:none;}
+  .contact-dock a{flex:1;padding:0 6px;font-size:.68rem;}
 }
 @media (max-width:560px){
   .hero-gallery-thumbs{right:12px;bottom:12px;left:12px;gap:6px;}
